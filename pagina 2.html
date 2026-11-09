@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dit is pagina 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <nav>
+    <ul>
+        <li><a href="index.html">hoofdpagina</a></li>
+        <li><a href="pagina 2.html" class="actief">welke reis past bij jou?</a></li>
+        <li><a href="pagina 3.html">over ons</a></li>
+        <li><a href="pagina 4.html">plan je reis</a></li>
+        <li><a href="pagina 5.html">verassingsreis</a></li>
+        </ul>
+        </nav>
+        <br>
+    <h1>wat is jouw droomlocatie?</h1>
+    <h2>Weet je nog niet waar je volgende avontuur naartoe gaat? Doe de korte quiz en ontdek welke vakantiebestemming het beste bij jou past! Beantwoord een paar leuke vragen en vind jouw ideale droombestemming.
+ 
+    <h3>1. Hoe ziet jouw perfecte vakantiedag eruit?</h3>
+
+<input type="radio" name="vraag1" value="strand"> Lekker zonnen en zwemmen<br>
+<input type="radio" name="vraag1" value="avontuur"> Nieuwe activiteiten uitproberen<br>
+<input type="radio" name="vraag1" value="stad"> Een stad ontdekken en winkelen<br>
+
+<h3>2. Welk land zou je het liefst bezoeken?</h3>
+
+<input type="radio" name="vraag2" value="strand"> Griekenland<br>
+<input type="radio" name="vraag2" value="avontuur"> Oostenrijk<br>
+<input type="radio" name="vraag2" value="stad"> Italië<br>
+
+<h3>3. Wat neem je het liefst mee op vakantie?</h3>
+
+<input type="radio" name="vraag3" value="strand"> Mijn zonnebril en zwemkleding<br>
+<input type="radio" name="vraag3" value="avontuur"> Mijn wandelschoenen<br>
+<input type="radio" name="vraag3" value="stad"> Mijn camera en comfortabele schoenen<br>
+
+<h3>4. Wat vind je het belangrijkst tijdens een vakantie?</h3>
+
+<input type="radio" name="vraag4" value="strand"> Rust, zon en ontspanning<br>
+<input type="radio" name="vraag4" value="avontuur"> Spanning en nieuwe ervaringen<br>
+<input type="radio" name="vraag4" value="stad"> Gezelligheid, cultuur en lekker eten<br>
+
+<h3>5. Waar slaap je het liefst tijdens je vakantie?</h3>
+
+<input type="radio" name="vraag5" value="strand"> In een hotel aan het strand<br>
+<input type="radio" name="vraag5" value="avontuur"> In een tent of berghut<br>
+<input type="radio" name="vraag5" value="stad"> In een hotel midden in de stad<br>
+
+<br>
+
+<button onclick="uitslag()">Bekijk mijn uitslag!</button>
+
+<h2 id="resultaat"></h2>
+
+<script>
+
+function uitslag() {
+
+    var strand = 0;
+    var avontuur = 0;
+    var stad = 0;
+
+    var antwoorden = document.querySelectorAll("input:checked");
+
+    if (antwoorden.length < 5) {
+        document.getElementById("resultaat").innerHTML =
+        "Beantwoord eerst alle vragen!";
+        return;
+    }
+
+    antwoorden.forEach(function(antwoord) {
+
+        if (antwoord.value == "strand") {
+            strand++;
+        }
+
+        if (antwoord.value == "avontuur") {
+            avontuur++;
+        }
+
+        if (antwoord.value == "stad") {
+            stad++;
+        }
+
+    });
+
+    if (strand >= avontuur && strand >= stad) {
+        document.getElementById("resultaat").innerHTML =
+        " Jij bent een echt strandtype! Een strandvakantie in Griekenland of Spanje past perfect bij jou!";
+    }
+
+    else if (avontuur >= stad) {
+        document.getElementById("resultaat").innerHTML =
+        " Jij bent een avonturier! Een actieve vakantie in Oostenrijk of Zwitserland past perfect bij jou!";
+    }
+
+    else {
+        document.getElementById("resultaat").innerHTML =
+        " Jij houdt van gezelligheid! Een stedentrip naar Rome of Parijs past perfect bij jou!";
+    }
+
+}
+
+</script>
+
+    
+</body>
+</html>
